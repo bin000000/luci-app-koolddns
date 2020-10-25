@@ -1,4 +1,4 @@
--- Copyright 2018 Nick Peng (pymumu@gmail.com)
+-- Copyright 2018 Nick Peng (ooxxbbbbb@gmail.com)
 
 require ("nixio.fs")
 require ("luci.http")
@@ -27,12 +27,12 @@ local i=luci.sys.exec("cat /usr/share/koolproxy/dnsmasq.adblock | wc -l")
 
 
 if luci.sys.call("pidof koolproxy >/dev/null") == 0 then
-	status = translate("<strong><font color=\"green\">广告过滤大师 Plus+  运行中</font></strong>")
+	status = translate("<strong><font color=\"green\">广告过滤 VIP  运行中</font></strong>")
 else
-	status = translate("<strong><font color=\"red\">广告过滤大师 Plus+  已停止</font></strong>")
+	status = translate("<strong><font color=\"red\">广告过滤 VIP  已停止</font></strong>")
 end
 
-o = Map("koolproxy", "<font color='green'>" .. translate("广告过滤大师 Plus+ ") .."</font>",     "<font color='purple'>" .. translate( "广告过滤大师 Plus+是能识别Adblock规则的广告屏蔽软件，可以过滤网页广告、视频广告、HTTPS广告") .."</font>")
+o = Map("koolproxy", "<font color='green'>" .. translate("广告过滤 VIP ") .."</font>",     "<font color='purple'>" .. translate( "广告过滤VIP是能识别Adblock规则的广告屏蔽软件，可以过滤网页广告、视频广告、HTTPS广告.@斌哥改版自用、禁止商业用途") .."</font>")
 
 t = o:section(TypedSection, "global")
 t.anonymous = true

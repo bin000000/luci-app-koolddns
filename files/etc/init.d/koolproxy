@@ -1,7 +1,7 @@
 #!/bin/sh /etc/rc.common
 #
 # Copyright (C) 2015 OpenWrt-dist
-# Copyright (C) 2016 fw867 <ffkykzs@gmail.com>
+# Copyright (C) 2016 <ooxxbbbbb@gmail.com>
 #
 # This is free software, licensed under the GNU General Public License v3.
 # See /LICENSE for more information.
@@ -207,6 +207,9 @@ load_rules() {
 			yhosts.txt)
 				sed -i '1s/0/1/g' $KP_DIR/data/source.list
 			;;
+			mv.txt)
+				sed -i '6s/0/1/g' $KP_DIR/data/source.list
+			;;
 			easylistchina.txt)
 				sed -i '2s/0/1/g' $KP_DIR/data/source.list
 			;;
@@ -218,9 +221,6 @@ load_rules() {
 			;;
 			koolproxy.txt)
 				sed -i '5s/0/1/g' $KP_DIR/data/source.list
-			;;
-			mv.txt)
-				sed -i '6s/0/1/g' $KP_DIR/data/source.list
 			;;
 			daily.txt)
 				sed -i '7s/0/1/g' $KP_DIR/data/source.list

@@ -1,10 +1,10 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=luci-app-koolproxyR
+PKG_NAME:=luci-app-koolproxy
 PKG_VERSION:=3.8.5
-PKG_RELEASE:=1-20201009
+PKG_RELEASE:=2-20201026
 
-PKG_MAINTAINER:=panda-mute <wxuzju@gmail.com>
+PKG_MAINTAINER:=panda-mute <ooxxbbbbb@gmail.com>
 PKG_LICENSE:=GPLv3
 PKG_LICENSE_FILES:=LICENSE
 
@@ -14,23 +14,23 @@ RSTRIP:=true
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/luci-app-koolproxyR
+define Package/luci-app-koolproxy
 	SECTION:=luci
 	CATEGORY:=LuCI
 	SUBMENU:=3. Applications
-	TITLE:=LuCI support for koolproxyR
+	TITLE:=LuCI support for koolproxy
 	DEPENDS:=+openssl-util +ipset +dnsmasq-full +@BUSYBOX_CONFIG_DIFF +iptables-mod-nat-extra +wget
 	MAINTAINER:=panda-mute
 endef
 
-define Package/luci-app-koolproxyR/description
+define Package/luci-app-koolproxy/description
 	This package contains LuCI configuration pages for koolproxy.
 endef
 
 define Build/Compile
 endef
 
-define Package/luci-app-koolproxyR/postinst
+define Package/luci-app-koolproxy/postinst
 #!/bin/sh
 if [ -z "$${IPKG_INSTROOT}" ]; then
 	( . /etc/uci-defaults/luci-koolproxy ) && rm -f /etc/uci-defaults/luci-koolproxy
@@ -39,7 +39,7 @@ fi
 exit 0
 endef
 
-define Package/luci-app-koolproxyR/install
+define Package/luci-app-koolproxy/install
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DIR) $(1)/etc/adblocklist
@@ -82,7 +82,7 @@ ifeq ($(ARCH),mips)
 	$(INSTALL_BIN) ./files/bin/mips $(1)/usr/share/koolproxy/koolproxy
 endif
 ifeq ($(ARCH),i386)
-	$(INSTALL_BIN) ./files/bin/i386 $(1)/usr/share/koolproxy/koolproxy
+	$(INSTALL_BIN) ./files/bin/x86 $(1)/usr/share/koolproxy/koolproxy
 endif
 ifeq ($(ARCH),x86_64)
 	$(INSTALL_BIN) ./files/bin/x86_64 $(1)/usr/share/koolproxy/koolproxy
@@ -95,4 +95,4 @@ ifeq ($(ARCH),aarch64)
 endif
 endef
 
-$(eval $(call BuildPackage,luci-app-koolproxyR))
+$(eval $(call BuildPackage,luci-app-koolproxy))
